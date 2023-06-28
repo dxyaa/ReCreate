@@ -1,9 +1,9 @@
 
 "use client";
 import 'tailwindcss/tailwind.css';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-export default function craft() {
+export default function Craft() {
     const [isOpen1, setIsOpen1] = useState(false);
     const [isOpen2, setIsOpen2] = useState(false);
     const [isOpen3, setIsOpen3] = useState(false);
@@ -97,7 +97,7 @@ export default function craft() {
         setIsOpen7(!isOpen7);
     };
     const toggle8Dropdown = () => {
-        setIsOpen8(!isOpen7);
+        setIsOpen8(!isOpen8);
     };
 
     return (
@@ -251,3 +251,4 @@ export default function craft() {
         </div>
     );
 };
+
