@@ -4,5 +4,5 @@ Our mission is to inspire and empower individuals to embrace sustainability in t
 # Demo
 Visit the website at 
 # Tech Stack Used
-*NextJS
-*TailwindCSS
+* NextJS
+* TailwindCSS
