@@ -66,7 +66,10 @@ const Dropdown: React.FC<DropdownProps> = ({ title, data }) => {
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
-
+  const extractStepNumber = (step: string) => {
+    const stepNumber = step.match(/\d+/); // Extracts numbers from the step label
+    return stepNumber ? parseInt(stepNumber[0]) : 0; // Parses the extracted number
+  };
   return (
     <div className="mt-3 w-3/4">
       <button
@@ -77,36 +80,22 @@ const Dropdown: React.FC<DropdownProps> = ({ title, data }) => {
       </button>
       {isOpen && (
         <div className=" w-full top-0 mt-2  bg-white border border-gray-300 rounded-md shadow-lg pl-2">
-          {data.map((item, index) => (
-            <p
-              key={index}
-              className="py-2 pt-4 hover:bg-gray-100 cursor-pointer"
-            >
-              Step {index + 1}: {item}
-            </p>
-          ))}
+          {data
+            .sort((a, b) => extractStepNumber(a) - extractStepNumber(b)) // Sort the steps based on their numerical order
+            .map((item, index) => (
+              <p
+                key={index}
+                className="py-2 pt-4 hover:bg-gray-100 cursor-pointer"
+              >
+                {item}
+              </p>
+            ))}
         </div>
       )}
     </div>
   );
 };
-
 const Craft: React.FC = () => {
-  /*const crafts = [
-    {
-      title: "PENCIL HOLDER",
-      data: ["Step 1: Clean an empty tin can..." ],
-    },
-    {
-      title: "JEWELLERY ORGANIZER",
-      data: ["Step 1: Cut a wooden frame..." ],
-    },
-    {
-      title: "COASTER",
-      data: ["Step 1: Choose a suitable material..." ],
-    },
-   
-  ];*/
   const [ideas, setIdeas] = useState<DropdownProps[]>([]);
   useEffect(() => {
     const fetchIdeas = async () => {
