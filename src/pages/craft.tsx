@@ -66,10 +66,7 @@ const Dropdown: React.FC<DropdownProps> = ({ title, data }) => {
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
-  const extractStepNumber = (step: string) => {
-    const stepNumber = step.match(/\d+/); // Extracts numbers from the step label
-    return stepNumber ? parseInt(stepNumber[0]) : 0; // Parses the extracted number
-  };
+
   return (
     <div className="mt-3 w-3/4">
       <button
@@ -80,21 +77,20 @@ const Dropdown: React.FC<DropdownProps> = ({ title, data }) => {
       </button>
       {isOpen && (
         <div className=" w-full top-0 mt-2  bg-white border border-gray-300 rounded-md shadow-lg pl-2">
-          {data
-            .sort((a, b) => extractStepNumber(a) - extractStepNumber(b)) // Sort the steps based on their numerical order
-            .map((item, index) => (
-              <p
-                key={index}
-                className="py-2 pt-4 hover:bg-gray-100 cursor-pointer"
-              >
-                {item}
-              </p>
-            ))}
+          {data.map((item, index) => (
+            <p
+              key={index}
+              className="py-2 pt-4 hover:bg-gray-100 cursor-pointer"
+            >
+              Step {index + 1}: {item}
+            </p>
+          ))}
         </div>
       )}
     </div>
   );
 };
+
 const Craft: React.FC = () => {
   const [ideas, setIdeas] = useState<DropdownProps[]>([]);
   useEffect(() => {
@@ -103,20 +99,10 @@ const Craft: React.FC = () => {
       const ideasCollection = collection(db, "Ideas");
       const ideasDoc = await getDocs(ideasCollection);
       const ideasData = ideasDoc.docs.map((doc) => {
-        const steps: string[] = [];
         const docData = doc.data();
-        // Iterate over each field in the document
-        for (const key in docData) {
-          // Check if the field is a step (assuming steps start with "step")
-          if (key.toLowerCase().startsWith("step")) {
-            steps.push(docData[key]);
-          } else {
-            console.log("no steps");
-          }
-        }
         return {
-          title: doc.id,
-          data: steps,
+          title: docData.name,
+          data: docData.steps,
         };
       });
       setIdeas(ideasData);
