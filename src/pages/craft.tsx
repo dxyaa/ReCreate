@@ -56,7 +56,7 @@ const Dropdown: React.FC<DropdownProps> = ({ title, data }) => {
   };
 
   return (
-    <div className="mt-3 w-3/4">
+    <div className="mt-3 w-1/2">
       <button
         className="py-5 px-4 bg-indigo-800 w-full text-white font-bold rounded-md hover:bg-white hover:text-indigo-600"
         onClick={toggleDropdown}
@@ -106,6 +106,11 @@ const Craft: React.FC = () => {
       <div className="">
         <div className="text-center text-7xl font-bold ">
           <div className="pt-20 text-indigo-600">Ideas For Sustainability</div>
+        </div>
+        <div className="w-full flex justify-center pt-20">
+          <button className="w-1/3 p-3 bg-indigo-800 flex justify-center items-center rounded text-white font-bold hover:bg-indigo-700">
+            Add Your Own +
+          </button>
         </div>
         <div className="flex flex-col  mt-20 items-center justify-around bg-black">
           {ideas.map((craft, index) => (
