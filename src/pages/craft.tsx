@@ -1,19 +1,7 @@
 /*
   
   
-    const data3 = ['Step 1: Choose a suitable material for the coaster base, such as cardboard, old tiles, or cork. Cut it into desired shapes and sizes for your coasters.',
-        'Step 2: Use decorative paper,fabric scraps or paint to make the coaster more attractive.',
-        'Step 3: To protect your coasters and make them more durable, you can apply a clear varnish or Mod Podge over the decorated surface. This will seal the design and make the coasters water-resistant.',
-        'Step 4: Trim any excess material or make any necessary touch-ups to ensure a neat and polished appearance.',
-        'Step 5: Allow the coasters to fully cure and dry according to the instructions provided by the adhesive, paint, or sealant you used.',
-        'Step 6: Place your homemade coasters on your coffee table, dining table, or any other surface where you would like to protect against drink rings.'
-    ]
-    const data4 = ['Step 1: Cut a piece of cardboard into a rectangular shape, typically measuring around 2 inches by 6 inches.',
-        'Step 2: Use decorative paper,fabric scraps or paint to decorate the base.',
-        'Step 3: Once the glue or paint has dried, trim any excess paper, fabric, or cardboard to ensure a clean and uniform shape for your bookmark.',
-        'Step 4: Near the top of the bookmark, use a hole punch or a sharp object like a needle to create a hole.',
-        'Step 5: Cut a piece of ribbon, yarn, or string. Thread one end through the hole from the front to the back, and then bring it back through the hole from the back to the front and tie the ends together in a knot or bow.',
-        'Step 6: Allow the glue to dry completely.Your homemade bookmark is now ready to use!'];
+    
     const data5 = ['Step 1: Choose an old t-shirt or pair of jeans to make the tote bag from.',
         'Step 2: Lay the t-shirt or jeans flat on a surface. Cut off the sleeves and neckline of the t-shirt, or if using jeans, cut off the legs.',
         'Step 3: Cut two long strips from the excess fabric of the sleeves or legs for the handles. ',
@@ -82,7 +70,7 @@ const Dropdown: React.FC<DropdownProps> = ({ title, data }) => {
               key={index}
               className="py-2 pt-4 hover:bg-gray-100 cursor-pointer"
             >
-              Step {index + 1}: {item}
+              <h1 className="font-bold">Step {index + 1}:</h1> {item}
             </p>
           ))}
         </div>
