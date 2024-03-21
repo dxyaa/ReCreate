@@ -75,7 +75,7 @@ const Dropdown: React.FC<DropdownProps> = ({ title, data }) => {
       >
         {title}
       </button>
-      {isOpen && (
+      {isOpen && data && data.length > 0 && (
         <div className=" w-full top-0 mt-2  bg-white border border-gray-300 rounded-md shadow-lg pl-2">
           {data.map((item, index) => (
             <p
@@ -100,11 +100,14 @@ const Craft: React.FC = () => {
       const ideasDoc = await getDocs(ideasCollection);
       const ideasData = ideasDoc.docs.map((doc) => {
         const docData = doc.data();
+        console.log("name: ", docData.Name);
+        console.log("steps: ", docData.Steps);
         return {
-          title: docData.name,
-          data: docData.steps,
+          title: docData.Name,
+          data: docData.Steps,
         };
       });
+
       setIdeas(ideasData);
     };
 
