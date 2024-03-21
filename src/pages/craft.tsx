@@ -1,19 +1,4 @@
-
-"use client";
-import 'tailwindcss/tailwind.css';
-import { useState } from 'react';
-
-export default function Craft() {
-    const [isOpen1, setIsOpen1] = useState(false);
-    const [isOpen2, setIsOpen2] = useState(false);
-    const [isOpen3, setIsOpen3] = useState(false);
-    const [isOpen4, setIsOpen4] = useState(false);
-    const [isOpen5, setIsOpen5] = useState(false);
-    const [isOpen6, setIsOpen6] = useState(false);
-    const [isOpen7, setIsOpen7] = useState(false);
-    const [isOpen8, setIsOpen8] = useState(false);
-
-
+/*
     const data1 = ['Step 1: Clean an empty tin can. Wash it thoroughly with soap and water, and remove any labels or residue.',
         'Step 2: Measure the height of the tin can and cut a piece of decorative paper or fabric that is slightly longer than the height and wide enough to wrap around the can.',
         'Step 3: Apply glue to the backside of the decorative paper or fabric. ',
@@ -73,182 +58,109 @@ export default function Craft() {
     'Step 4: Experiment with different layouts and patterns to achieve the desired look. You can create geometric patterns, abstract designs, or even depict recognizable shapes or images.',
     'Step 5: Once you are satisfied with the design, begin gluing the CD pieces onto the base object one by one. Apply a small amount of clear-drying glue onto the back of each piece and press it firmly onto the base.',
     'Step 6: After the glue has dried, you can use a soft cloth or sponge to gently clean the surface of the CD mosaic, removing any fingerprints or smudges. Once the CD mosaic is dry and cleaned, it is ready to be displayed.'
-    ]
+    ]*/
+"use client";
+import "tailwindcss/tailwind.css";
+import React, { useState } from "react";
+import { doc, getDocs, getFirestore, updateDoc } from "firebase/firestore";
+import { collection } from "firebase/firestore";
+import app from "../firebase/firebaseConfig";
 
-    const toggle1Dropdown = () => {
-        setIsOpen1(!isOpen1);
-    };
-    const toggle2Dropdown = () => {
-        setIsOpen2(!isOpen2);
-    };
-    const toggle3Dropdown = () => {
-        setIsOpen3(!isOpen3);
-    };
-    const toggle4Dropdown = () => {
-        setIsOpen4(!isOpen4);
-    };
-    const toggle5Dropdown = () => {
-        setIsOpen5(!isOpen5);
-    };
-    const toggle6Dropdown = () => {
-        setIsOpen6(!isOpen6);
-    };
-    const toggle7Dropdown = () => {
-        setIsOpen7(!isOpen7);
-    };
-    const toggle8Dropdown = () => {
-        setIsOpen8(!isOpen8);
-    };
+import { useEffect } from "react";
+interface DropdownProps {
+  title: string;
+  data: string[];
+}
 
-    return (
-        <div className="h-screen bg-black">
-            <div className="">
-                <div className="text-center text-7xl font-bold ">
-                    <div className="pt-20 text-indigo-600">
-                    Ideas For Sustainability
-                    </div>
-                </div>
-                <div className="flex flex-col  mt-20 items-center justify-around bg-black">
-                    <div className="w-3/4">
-                        <button id="dropdown1"
-                            className="py-5 px-4 bg-indigo-800 text-l w-full text-white font-bold rounded-md hover:bg-white hover:text-indigo-600"
-                            onClick={toggle1Dropdown}
-                        >
-                            PENCIL HOLDER
-                        </button>
-                        {isOpen1 && (
-                            <div className="w-full top-0 mt-2 w-48 bg-white border border-gray-300 rounded-md shadow-lg pl-2">
-                                {data1.map((item, index) => (
-                                    <p key={index} className="py-2 pt-4 hover:bg-gray-100 cursor-pointer">
-                                        {item}
-                                    </p>
-                                ))}
-                            </div>
-                        )}
-                    </div>
-                    <div className="mt-3 w-3/4 ">
-                        <button id="dropdown2"
-                            className="py-5 px-4 bg-indigo-800 w-full text-white font-bold rounded-md hover:bg-white hover:text-indigo-600 "
-                            onClick={toggle2Dropdown}
-                        >
-                            JEWELLERY ORGANIZER
-                        </button>
-                        {isOpen2 && (
-                            <div className=" w-full top-0 mt-2 w-48 bg-white border border-gray-300 rounded-md shadow-lg pl-2">
-                                {data2.map((item, index) => (
-                                    <p key={index} className="py-2 pt-4 hover:bg-gray-100 cursor-pointer">
-                                        {item}
-                                    </p>
-                                ))}
-                            </div>
-                        )}
-                    </div>
-                    <div className="mt-3 w-3/4 ">
-                        <button id="dropdown3"
-                            className="py-5 px-4 bg-indigo-800 w-full text-white font-bold rounded-md hover:bg-white hover:text-indigo-600"
-                            onClick={toggle3Dropdown}
-                        >
-                            COASTER
-                        </button>
-                        {isOpen3 && (
-                            <div className=" w-full top-0 mt-2 w-48 bg-white border border-gray-300 rounded-md shadow-lg pl-2">
-                                {data3.map((item, index) => (
-                                    <p key={index} className="py-2 pt-4 hover:bg-gray-100 cursor-pointer">
-                                        {item}
-                                    </p>
-                                ))}
-                            </div>
-                        )}
-                    </div>
-                    <div className="mt-3 w-3/4 ">
-                        <button id="dropdown4"
-                            className="py-5 px-4 bg-indigo-800 w-full text-white font-bold rounded-md hover:bg-white hover:text-indigo-600"
-                            onClick={toggle4Dropdown}
-                        >
-                            BOOKMARK
-                        </button>
-                        {isOpen4 && (
-                            <div className=" w-full top-0 mt-2 w-48 bg-white border border-gray-300 rounded-md shadow-lg pl-2">
-                                {data4.map((item, index) => (
-                                    <p key={index} className="py-2 pt-4 hover:bg-gray-100 cursor-pointer">
-                                        {item}
-                                    </p>
-                                ))}
-                            </div>
-                        )}
-                    </div>
-                    <div className="mt-3 w-3/4 ">
-                        <button id="dropdown5"
-                            className="py-5 px-4 bg-indigo-800 w-full text-white font-bold rounded-md hover:bg-white hover:text-indigo-600"
-                            onClick={toggle5Dropdown}
-                        >
-                            TOTE BAG
-                        </button>
-                        {isOpen5 && (
-                            <div className=" w-full top-0 mt-2 w-48 bg-white border border-gray-300 rounded-md shadow-lg pl-2">
-                                {data5.map((item, index) => (
-                                    <p key={index} className="py-2 pt-4 hover:bg-gray-100 cursor-pointer">
-                                        {item}
-                                    </p>
-                                ))}
-                            </div>
-                        )}
-                    </div>
-                    <div className="mt-3 w-3/4 ">
-                        <button id="dropdown6"
-                            className="py-5 px-4 bg-indigo-800 w-full text-white font-bold rounded-md hover:bg-white hover:text-indigo-600"
-                            onClick={toggle6Dropdown}
-                        >
-                            NEWSPAPER BASKET
-                        </button>
-                        {isOpen6 && (
-                            <div className=" w-full top-0 mt-2 w-48 bg-white border border-gray-300 rounded-md shadow-lg pl-2">
-                                {data6.map((item, index) => (
-                                    <p key={index} className="py-2 pt-4 hover:bg-gray-100 cursor-pointer">
-                                        {item}
-                                    </p>
-                                ))}
-                            </div>
-                        )}
-                    </div>
-                    <div className="mt-3 w-3/4">
-                        <button id="dropdown7"
-                            className="py-5 px-4 bg-indigo-800 w-full text-white font-bold rounded-md hover:bg-white hover:text-indigo-600"
-                            onClick={toggle7Dropdown}
-                        >
-                            SWEATER PILLOW COVERS
-                        </button>
-                        {isOpen7 && (
-                            <div className=" w-full top-0 mt-2 w-48 bg-white border border-gray-300 rounded-md shadow-lg pl-2">
-                                {data7.map((item, index) => (
-                                    <p key={index} className="py-2 pt-4 hover:bg-gray-100 cursor-pointer">
-                                        {item}
-                                    </p>
-                                ))}
-                            </div>
-                        )}
-                    </div>
-                    <div className="mt-3 w-3/4 mb-10">
-                        <button id="dropdown8"
-                            className="py-5 px-4 bg-indigo-800 w-full text-white font-bold rounded-md hover:bg-white hover:text-indigo-600"
-                            onClick={toggle8Dropdown}
-                        >
-                            CD MOSAIC
-                        </button>
-                        {isOpen8 && (
-                            <div className=" w-full top-0 mt-2 w-48 bg-white border border-gray-300 rounded-md shadow-lg pl-2">
-                                {data8.map((item, index) => (
-                                    <p key={index} className="py-2 pt-4 hover:bg-gray-100 cursor-pointer">
-                                        {item}
-                                    </p>
-                                ))}
-                            </div>
-                        )}
-                    </div>
-                </div>
+const Dropdown: React.FC<DropdownProps> = ({ title, data }) => {
+  const [isOpen, setIsOpen] = useState(false);
 
-            </div>
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <div className="mt-3 w-3/4">
+      <button
+        className="py-5 px-4 bg-indigo-800 w-full text-white font-bold rounded-md hover:bg-white hover:text-indigo-600"
+        onClick={toggleDropdown}
+      >
+        {title}
+      </button>
+      {isOpen && (
+        <div className=" w-full top-0 mt-2  bg-white border border-gray-300 rounded-md shadow-lg pl-2">
+          {data.map((item, index) => (
+            <p
+              key={index}
+              className="py-2 pt-4 hover:bg-gray-100 cursor-pointer"
+            >
+              Step {index + 1}: {item}
+            </p>
+          ))}
         </div>
-    );
+      )}
+    </div>
+  );
 };
 
+const Craft: React.FC = () => {
+  /*const crafts = [
+    {
+      title: "PENCIL HOLDER",
+      data: ["Step 1: Clean an empty tin can..." ],
+    },
+    {
+      title: "JEWELLERY ORGANIZER",
+      data: ["Step 1: Cut a wooden frame..." ],
+    },
+    {
+      title: "COASTER",
+      data: ["Step 1: Choose a suitable material..." ],
+    },
+   
+  ];*/
+  const [ideas, setIdeas] = useState<DropdownProps[]>([]);
+  useEffect(() => {
+    const fetchIdeas = async () => {
+      const db = getFirestore(app);
+      const ideasCollection = collection(db, "Ideas");
+      const ideasDoc = await getDocs(ideasCollection);
+      const ideasData = ideasDoc.docs.map((doc) => {
+        const steps: string[] = [];
+        const docData = doc.data();
+        // Iterate over each field in the document
+        for (const key in docData) {
+          // Check if the field is a step (assuming steps start with "step")
+          if (key.toLowerCase().startsWith("step")) {
+            steps.push(docData[key]);
+          } else {
+            console.log("no steps");
+          }
+        }
+        return {
+          title: doc.id,
+          data: steps,
+        };
+      });
+      setIdeas(ideasData);
+    };
+
+    fetchIdeas();
+  }, []);
+  return (
+    <div className="h-screen bg-black">
+      <div className="">
+        <div className="text-center text-7xl font-bold ">
+          <div className="pt-20 text-indigo-600">Ideas For Sustainability</div>
+        </div>
+        <div className="flex flex-col  mt-20 items-center justify-around bg-black">
+          {ideas.map((craft, index) => (
+            <Dropdown key={index} title={craft.title} data={craft.data} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Craft;
