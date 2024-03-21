@@ -1,11 +1,5 @@
 /*
-    const data1 = ['Step 1: Clean an empty tin can. Wash it thoroughly with soap and water, and remove any labels or residue.',
-        'Step 2: Measure the height of the tin can and cut a piece of decorative paper or fabric that is slightly longer than the height and wide enough to wrap around the can.',
-        'Step 3: Apply glue to the backside of the decorative paper or fabric. ',
-        'Step 4: Carefully wrap the decorative paper or fabric around the tin can, starting from the bottom and aligning the edges.',
-        'Step 5: Smooth out any wrinkles or bubbles and trim any excess paper or fabric at the top or bottom of the can.',
-        'Step 6: Paint the can with acrylic paint, use markers to draw designs, or attach stickers, ribbons, or buttons.',
-        'Step 7: Once the pencil holder is dry, place your pens, pencils, markers, or other stationery items inside the can.'];
+   
     const data2 = ['Step 1: Cut a wooden frame or a cardboard to the desired size and shape for your jewelry organizer.',
         'Step 2: Cut a piece of fabric or decorative paper that is slightly larger than the size of the base. Apply craft glue or use a hot glue gun to attach the fabric or paper to the front surface of the base. ',
         'Step 3: Smooth out any wrinkles or bubbles and trim any excess paper or fabric around the edges of the base.',
