@@ -1,12 +1,6 @@
 /*
-   
-    const data2 = ['Step 1: Cut a wooden frame or a cardboard to the desired size and shape for your jewelry organizer.',
-        'Step 2: Cut a piece of fabric or decorative paper that is slightly larger than the size of the base. Apply craft glue or use a hot glue gun to attach the fabric or paper to the front surface of the base. ',
-        'Step 3: Smooth out any wrinkles or bubbles and trim any excess paper or fabric around the edges of the base.',
-        'Step 4: Cut pieces of ribbon, strings, or attach hooks to the top or sides of the base. These will be used to hang your necklaces, bracelets, or earrings.',
-        'Step 5: Use craft glue or hot glue gun to secure the ribbons, strings, or hooks to the back of the base.',
-        'Step 6: Paint the wooden frame or cardboard, use markers to add designs or patterns, or attach stickers, ribbons, or other embellishments.',
-        'Step 7: Once the jewelry organizer is dry, hang your necklaces, bracelets, or earrings on the ribbons, strings, or hooks. '];
+  
+  
     const data3 = ['Step 1: Choose a suitable material for the coaster base, such as cardboard, old tiles, or cork. Cut it into desired shapes and sizes for your coasters.',
         'Step 2: Use decorative paper,fabric scraps or paint to make the coaster more attractive.',
         'Step 3: To protect your coasters and make them more durable, you can apply a clear varnish or Mod Podge over the decorated surface. This will seal the design and make the coasters water-resistant.',
