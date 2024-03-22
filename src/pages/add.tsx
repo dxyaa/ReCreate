@@ -29,11 +29,10 @@ const Add = () => {
     setSteps(updatedSteps);
   };
   const handleSubmit = async () => {
-    /* if (title.trim() === "" || steps.some((step) => step.trim() === "")) {
+    if (title.trim() === "" || steps.some((step) => step.trim() === "")) {
       alert("Please fill in all fields before submitting.");
       return;
     }
-    */
 
     try {
       const docRef = await addDoc(ideasCollection, {
