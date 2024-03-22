@@ -6,7 +6,7 @@ const Add = () => {
   const index = 1;
   return (
     <div className="h-screen bg-black text-white  flex justify-center items-center flex-col space-y-5">
-      <h1 className="font-bold text-4xl ">Add Your Own Idea</h1>
+      <h1 className="font-bold text-4xl text-indigo-600">Add Your Own Idea</h1>
       <div className="flex flex-row pt-5">
         <p>Title : </p>
         <input className="p-1 rounded ml-2 text-black"></input>
@@ -16,7 +16,7 @@ const Add = () => {
         <div>Step {index} :</div>
         <input className="w-1/2 p-1 text-black ml-2 rounded"></input>
       </div>
-      <button className="p-2 bg-indigo-700 rounded hover:bg-indigo-600 font-bold">
+      <button className="p-2 bg-indigo-700 rounded hover:bg-indigo-600 ">
         Add steps +
       </button>
     </div>
