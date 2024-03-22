@@ -4,10 +4,17 @@ import React from "react";
 import "tailwindcss/tailwind.css";
 import { useState } from "react";
 import { ChangeEvent } from "react";
+import { addDoc, collection } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
+import app from "../firebase/firebaseConfig";
 
 const Add = () => {
   const [stepIndex, setStepIndex] = useState<number>(1);
   const [steps, setSteps] = useState<string[]>([""]);
+  const [title, setTitle] = useState<string>("");
+
+  const db = getFirestore(app);
+  const ideasCollection = collection(db, "Ideas");
 
   const addStep = () => {
     if (steps.length < 8) {
@@ -21,12 +28,37 @@ const Add = () => {
     updatedSteps[index] = value;
     setSteps(updatedSteps);
   };
+  const handleSubmit = async () => {
+    /* if (title.trim() === "" || steps.some((step) => step.trim() === "")) {
+      alert("Please fill in all fields before submitting.");
+      return;
+    }
+    */
+
+    try {
+      const docRef = await addDoc(ideasCollection, {
+        Name: title,
+        Steps: steps.filter((step) => step.trim() !== ""),
+      });
+      console.log("Document written with ID: ", docRef.id);
+      // Redirect or show success message after submitting
+    } catch (error) {
+      console.error("Error adding document: ", error);
+      // Show error message if adding document fails
+    }
+  };
   return (
     <form className="h-screen bg-black text-white flex justify-center items-center flex-col space-y-5">
       <h1 className="font-bold text-4xl text-indigo-600">Add Your Own Idea</h1>
       <div className="flex flex-row pt-5">
         <p>Title : </p>
-        <input className="p-1 rounded ml-2 text-black"></input>
+        <input
+          className="p-1 rounded ml-2 text-black"
+          value={title}
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            setTitle(e.target.value)
+          }
+        />
       </div>
       <h2 className="font-bold">Enter steps on how to make it : </h2>
       {steps.map((step, index) => (
@@ -58,7 +90,11 @@ const Add = () => {
       {steps.length >= 8 && (
         <p className="text-red-400">Maximum number of steps is 8</p>
       )}
-      <button className="w-1/6 p-2 border-4 text-indigo-400  hover:text-white border-indigo-800 hover:bg-indigo-800  rounded-full uppercase font-bold">
+      <button
+        onClick={handleSubmit}
+        type="button"
+        className="w-1/6 p-2 border-4 text-indigo-400  hover:text-white border-indigo-800 hover:bg-indigo-800  rounded-full uppercase font-bold"
+      >
         Submit
       </button>
     </form>
