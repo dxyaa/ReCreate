@@ -40,10 +40,12 @@ const Add = () => {
         Steps: steps.filter((step) => step.trim() !== ""),
       });
       console.log("Document written with ID: ", docRef.id);
-      // Redirect or show success message after submitting
+
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
     } catch (error) {
       console.error("Error adding document: ", error);
-      // Show error message if adding document fails
     }
   };
   return (
@@ -91,6 +93,7 @@ const Add = () => {
       )}
       <button
         onClick={handleSubmit}
+        type="button"
         className="w-1/6 p-2 border-4 text-indigo-400  hover:text-white border-indigo-800 hover:bg-indigo-800  rounded-full uppercase font-bold"
       >
         Submit
