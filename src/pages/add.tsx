@@ -43,6 +43,7 @@ const Add = () => {
         </div>
       ))}
       <button
+        type="button"
         className="p-2 bg-indigo-700 rounded hover:bg-indigo-600"
         onClick={addStep}
       >
