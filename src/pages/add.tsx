@@ -48,7 +48,7 @@ const Add = () => {
       >
         Add steps +
       </button>
-      <button className="w-1/4 p-2 bg-indigo-700 hover:bg-indigo-600  rounded uppercase font-bold">
+      <button className="w-1/6 p-2 border-4 text-indigo-400  hover:text-white border-indigo-800 hover:bg-indigo-800  rounded-full uppercase font-bold">
         Submit
       </button>
     </form>
