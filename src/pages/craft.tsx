@@ -41,7 +41,7 @@ import React, { useState } from "react";
 import { doc, getDocs, getFirestore, updateDoc } from "firebase/firestore";
 import { collection } from "firebase/firestore";
 import app from "../firebase/firebaseConfig";
-
+import Link from "next/link";
 import { useEffect } from "react";
 interface DropdownProps {
   title: string;
@@ -108,9 +108,12 @@ const Craft: React.FC = () => {
           <div className="pt-20 text-indigo-600">Ideas For Sustainability</div>
         </div>
         <div className="w-full flex justify-center pt-20">
-          <button className="w-1/3 p-3 bg-indigo-800 flex justify-center items-center rounded text-white font-bold hover:bg-indigo-700">
+          <Link
+            href="/add"
+            className="w-1/3 p-3 bg-indigo-800 flex justify-center items-center rounded text-white font-bold hover:bg-indigo-700"
+          >
             Add Your Own +
-          </button>
+          </Link>
         </div>
         <div className="flex flex-col  mt-20 items-center justify-around bg-black">
           {ideas.map((craft, index) => (
