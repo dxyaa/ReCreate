@@ -10,8 +10,10 @@ const Add = () => {
   const [steps, setSteps] = useState<string[]>([""]);
 
   const addStep = () => {
-    setStepIndex((prevIndex) => prevIndex + 1);
-    setSteps((prevSteps) => [...prevSteps, ""]);
+    if (steps.length < 8) {
+      setStepIndex((prevIndex) => prevIndex + 1);
+      setSteps((prevSteps) => [...prevSteps, ""]);
+    }
   };
 
   const handleStepChange = (index: number, value: string) => {
@@ -42,13 +44,20 @@ const Add = () => {
           />
         </div>
       ))}
+
       <button
         type="button"
-        className="p-2 bg-indigo-700 rounded hover:bg-indigo-600"
+        className={`p-2 bg-indigo-700 rounded hover:bg-indigo-600 ${
+          steps.length >= 8 && "cursor-not-allowed opacity-50"
+        }`}
         onClick={addStep}
+        disabled={steps.length >= 10}
       >
         Add steps +
       </button>
+      {steps.length >= 8 && (
+        <p className="text-red-400">Maximum number of steps is 8</p>
+      )}
       <button className="w-1/6 p-2 border-4 text-indigo-400  hover:text-white border-indigo-800 hover:bg-indigo-800  rounded-full uppercase font-bold">
         Submit
       </button>
