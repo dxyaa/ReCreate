@@ -92,7 +92,6 @@ const Add = () => {
       )}
       <button
         onClick={handleSubmit}
-        type="button"
         className="w-1/6 p-2 border-4 text-indigo-400  hover:text-white border-indigo-800 hover:bg-indigo-800  rounded-full uppercase font-bold"
       >
         Submit
