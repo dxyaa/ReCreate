@@ -1,8 +1,9 @@
-import Head from 'next/head';
-import Link from 'next/link';
-import about from '../pages/about';
-import 'tailwindcss/tailwind.css';
-
+import Head from "next/head";
+import Link from "next/link";
+import about from "../pages/about";
+import "tailwindcss/tailwind.css";
+import Image from "next/image";
+import earth from "../../public/images/earth.jpg";
 export default function Home() {
   return (
     <div>
@@ -20,12 +21,16 @@ export default function Home() {
               <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
                 <li>
                   <Link href="/">
-                    <span className="text-m text-white hover:bg-gray-800 font-bold py-2 px-4 rounded">Home</span>
+                    <span className="text-m text-white hover:bg-gray-800 font-bold py-2 px-4 rounded">
+                      Home
+                    </span>
                   </Link>
                 </li>
                 <li>
                   <Link href="/about">
-                    <span className="text-m text-white hover:bg-gray-800 font-bold py-2 px-4 rounded">About Us</span>
+                    <span className="text-m text-white hover:bg-gray-800 font-bold py-2 px-4 rounded">
+                      About Us
+                    </span>
                   </Link>
                 </li>
               </ul>
@@ -34,14 +39,16 @@ export default function Home() {
         </div>
       </nav>
       <div className="flex flex-row justify-between py-20">
-      <div className="flex flex-col px-10">
+        <div className="flex flex-col px-10">
           <div className="text-8xl font-bold text-indigo-700 ">
             Sustainability, the pathway to a brighter future!
           </div>
-          <div className="text-xl font-bold text-gray-700 mt-6 ml-24  ">
-            Recycle smart, save the planet.
+          <div className="text-xl font-bold text-gray-700 mt-6 ml-24 w-2/3 ">
+            <p className="text-gray-400">Recycle smart, save the planet.</p>
+            We provide and promote unique ideas on how to reuse and recycle
+            stuff.
           </div>
-          <div >
+          <div>
             <Link href="/craft">
               <button className="ml-24 bg-indigo-700 item-center hover:bg-indigo-800 text-gray-300 mt-10 font-bold py-4 rounded w-1/2">
                 Get Started!
@@ -49,10 +56,16 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <div >
-          <img src="https://wallpaperaccess.com/full/1240059.jpg" className="object-scale-down h-110 w-120"></img>
+        <div>
+          <Image
+            alt="earth"
+            src={earth}
+            height="4000"
+            width="4000"
+            className=""
+          />
         </div>
       </div>
     </div>
   );
-};
+}

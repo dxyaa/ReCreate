@@ -43,7 +43,7 @@ const Add = () => {
 
       setTimeout(() => {
         window.location.reload();
-      }, 1500);
+      }, 700);
     } catch (error) {
       console.error("Error adding document: ", error);
     }

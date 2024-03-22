@@ -35,7 +35,7 @@ const Dropdown: React.FC<DropdownProps> = ({ title, data }) => {
   };
 
   return (
-    <div className="mt-3 w-1/2">
+    <div className="mt-3 md:w-1/2 w-2/3">
       <button
         className="py-5 px-4 bg-indigo-800 w-full text-white font-bold rounded-md hover:bg-white hover:text-indigo-600"
         onClick={toggleDropdown}
